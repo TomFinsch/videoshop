@@ -17,3 +17,9 @@ img.thumbnail {
 	width: 160px;
 	display: block;
 }
+body{
+	background-color: deepskyblue;
+}
+div{
+	border-radius: 20px !important;
+}
