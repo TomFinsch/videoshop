@@ -41,7 +41,7 @@ public class Disc extends Product {
 	// primitive Typen oder Strings müssen nicht extra für JPA annotiert werden
 	private String genre, image;
 	private DiscType type;
-
+	private String description;
 	// (｡◕‿◕｡)
 	// Jede Disc besitzt mehrere Kommentare, eine "1 zu n"-Beziehung -> @OneToMany für JPA
 	// cascade gibt an, was mit den Kindelementen (Comment) passieren soll wenn das Parentelement
@@ -52,6 +52,15 @@ public class Disc extends Product {
 	@SuppressWarnings({ "unused", "deprecation" })
 	private Disc() {}
 
+	public Disc(String name, String image, Money price, String genre, DiscType type, String description) {
+
+		super(name, price);
+
+		this.image = image;
+		this.genre = genre;
+		this.type = type;
+		this.description = description;
+	}
 	public Disc(String name, String image, Money price, String genre, DiscType type) {
 
 		super(name, price);
@@ -59,6 +68,7 @@ public class Disc extends Product {
 		this.image = image;
 		this.genre = genre;
 		this.type = type;
+		this.description = "Keine Beschreibung verfügbar!";
 	}
 
 	public String getGenre() {
@@ -85,5 +95,9 @@ public class Disc extends Product {
 
 	public DiscType getType() {
 		return type;
+	}
+
+	public String getDescription() {
+		return description;
 	}
 }
